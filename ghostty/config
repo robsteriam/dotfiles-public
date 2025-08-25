@@ -1,0 +1,11 @@
+theme = "catppuccin-macchiato"
+background-opacity = .70
+background-blur = true
+
+cursor-style = underline
+cursor-style-blink = true
+
+font-family = "FiraCode Nerd Font"
+font-size = 16
+
+macos-titlebar-style = hidden

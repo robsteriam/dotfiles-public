@@ -1,0 +1,29 @@
+# Disable Cmd-based macOS defaults
+# cmd - q : /bin/true     # Stops Cmd + Q from quitting the active app
+cmd - w : /bin/true     # Stops Cmd + W from closing the active window or tab
+cmd - h : /bin/true     # Stops Cmd + H from hiding the active app
+cmd - m : /bin/true     # Stops Cmd + M from minimizing the active window
+# cmd - t : /bin/true     # Stops Cmd + T from opening a new tab (e.g., in Finder, browsers)
+# cmd - n : /bin/true     # Stops Cmd + N from creating a new window or document
+# cmd - s : /bin/true     # Stops Cmd + S from saving (useful if you rebind save elsewhere)
+cmd - o : /bin/true     # Stops Cmd + O from opening a file dialog
+cmd - tab : /bin/true   # Attempts to stop Cmd + Tab app switcher (might need Karabiner for full effect)
+# cmd - space : /bin/true # Stops Cmd + Space from opening Spotlight search
+
+# Disable Alt-based macOS defaults
+alt - left : /bin/true  # Stops Alt + Left from moving cursor one word left in text editors
+alt - right : /bin/true # Stops Alt + Right from moving cursor one word right in text editors
+alt - up : /bin/true    # Stops Alt + Up from scrolling up or jumping lines (app-dependent)
+alt - down : /bin/true  # Stops Alt + Down from scrolling down or jumping lines (app-dependent)
+alt - tab : /bin/true   # Stops Alt + Tab from any macOS or app-specific behavior (less common)
+
+# Disable Cmd + Alt combos
+cmd + alt - d : /bin/true  # Stops Cmd + Alt + D from toggling the Dock visibility
+cmd + alt - h : /bin/true  # Stops Cmd + Alt + H from hiding all apps except the active one
+cmd + alt - m : /bin/true  # Stops Cmd + Alt + M from minimizing all windows of the active app
+
+# Shortcuts
+cmd + shift - t : open -a kitty
+cmd + shift - b : open -a 'Microsoft Edge'
+cmd + shift - s : open -a spotify
+cmd + shift - m : open -a messages

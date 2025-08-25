@@ -1,0 +1,221 @@
+# You can use it to add commands that run after login to macOS user session.
+# 'start-at-login' needs to be 'true' for 'after-login-command' to work
+after-login-command = []
+
+after-startup-command = [
+  "exec-and-forget sketchybar",
+  "exec-and-forget borders active_color=0xFFEB212E inactive_color=0xFF494D64 width=5.0",
+]
+
+# 'after-startup-command' is run after 'after-login-command'
+exec-on-workspace-change = [
+  "/bin/bash",
+  "-c",
+  "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE",
+]
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# The 'accordion-padding' specifies the size of accordion padding
+# You can set 0 to disable the padding feature
+accordion-padding = 30
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus when focused monitor changes
+# Drop it from your config, if you don't like this behavior
+# Fallback value (if you omit the key): on-focused-monitor-changed = []
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = "move-mouse window-lazy-center"
+
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+automatically-unhide-macos-hidden-apps = false
+
+# Possible values: (qwerty|dvorak)
+[key-mapping]
+preset = 'qwerty'
+
+[gaps]
+inner.horizontal = [
+  { monitor."Built-in Retina Display" = 5 },
+  { monitor."LC49G95T" = 7 },
+  { monitor."LEN T2424zA" = 7 },
+  5,
+]
+inner.vertical = [
+  { monitor."Built-in Retina Display" = 5 },
+  { monitor."LC49G95T" = 5 },
+  { monitor."LEN T2424zA" = 5 },
+  5,
+]
+outer.left = [
+  { monitor."Built-in Retina Display" = 5 },
+  { monitor."LC49G95T" = 5 },
+  { monitor."LEN T2424zA" = 5 },
+  5,
+]
+outer.bottom = [
+  { monitor."Built-in Retina Display" = 5 },
+  { monitor."LC49G95T" = 5 },
+  { monitor."LEN T2424zA" = 5 },
+  5,
+]
+outer.top = [
+  { monitor."Built-in Retina Display" = 4 },
+  { monitor."LC49G95T" = 40 },
+  { monitor."LEN T2424zA" = 40 },
+  5,
+]
+outer.right = [
+  { monitor."Built-in Retina Display" = 5 },
+  { monitor."LC49G95T" = 5 },
+  { monitor."LEN T2424zA" = 5 },
+  5,
+]
+
+# 'main' binding mode declaration
+# 'main' binding mode must be always presented
+# Fallback value (if you omit the key): mode.main.binding = {}
+[mode.main.binding]
+alt-a = 'workspace A'
+alt-b = 'workspace B'
+alt-c = 'workspace C'
+alt-shift-a = ['move-node-to-workspace A', 'workspace A']
+alt-shift-b = ['move-node-to-workspace B', 'workspace B']
+alt-shift-c = ['move-node-to-workspace C', 'workspace C']
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#layout
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#focus
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Normalizations
+alt-ctrl-h = 'split horizontal'
+alt-ctrl-v = 'split vertical'
+alt-f = 'macos-native-fullscreen'
+# alt-s = 'layout v_accordion'
+# alt-w = 'layout h_accordion'
+# alt-e = 'layout tiles horizontal vertical'
+alt-shift-space = 'layout floating tiling'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#resize
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#assign-to-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+A = 'LEN T2424zA'
+B = 'LEN T2424zA'
+C = 'LEN T2424zA'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+alt-tab = 'workspace-back-and-forth'
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+alt-shift-semicolon = 'mode service'
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+f = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+#s = ['layout sticky tiling', 'mode main']
+
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+down = 'volume down'
+up = 'volume up'
+shift-down = ['volume set 0', 'mode main']
+
+# Move applications to specific workspace
+# The idea is to have workspaces labeled after an application
+# In this case worksapce T for 'Terminal'
+# [[on-window-detected]]
+# if.app-id = "net.kovidgoyal.kitty"
+# run = "move-node-to-workspace T"
+
+# Workspace B for 'Browser'
+# [[on-window-detected]]
+# if.app-id = "com.google.chrome"
+# run = "move-node-to-workspace B"
+
+[[on-window-detected]]
+if.app-id = "com.apple.SFSymbols"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.autoupdate2"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.apple.ActivityMonitor"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "net.pornel.ImageOptim"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = ["layout tiling"]

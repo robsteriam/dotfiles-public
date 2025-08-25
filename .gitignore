@@ -1,0 +1,22 @@
+# Ignore Zsh runtime files
+.zcompdump*
+.zsh_history
+.zsh_sessions*
+zsh/.zcompcache/brew_casks
+zsh/.zcompcache/brew_formulae
+zsh/.zcompcache*
+
+# Nvim Ignore
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+lazy-lock.json
+nvim/lazy-lock.json
+
+# Remove Apple Default files
+.DS_Store

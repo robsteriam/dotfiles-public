@@ -1,0 +1,95 @@
+# ─────────────────────────────────────────────
+# 🪟 Window Management
+# ─────────────────────────────────────────────
+keybind = super+n=new_window                                   # ⌘ + N
+keybind = super+w=close_surface                                # ⌘ + W
+keybind = super+shift+w=close_window                           # ⌘ + ⇧ + W
+keybind = super+alt+shift+w=close_all_windows                  # ⌘ + ⌥ + ⇧ + W
+keybind = super+enter=toggle_fullscreen                        # ⌘ + ⏎
+keybind = super+ctrl+f=toggle_fullscreen                       # ⌘ + ⌃ + F
+
+# ─────────────────────────────────────────────
+# 📑 Tab Management
+# ─────────────────────────────────────────────
+keybind = super+t=new_tab                                      # ⌘ + T
+keybind = ctrl+tab=next_tab                                    # ⌃ + ⇥
+keybind = ctrl+shift+tab=previous_tab                          # ⌃ + ⇧ + ⇥
+keybind = super+shift+left_bracket=previous_tab                # ⌘ + ⇧ + [
+keybind = super+shift+right_bracket=next_tab                   # ⌘ + ⇧ + ]
+keybind = super+alt+w=close_tab                                # ⌘ + ⌥ + W
+keybind = super+physical:one=goto_tab:1                        # ⌘ + 1
+keybind = super+physical:two=goto_tab:2                        # ⌘ + 2
+keybind = super+physical:three=goto_tab:3                      # ⌘ + 3
+keybind = super+physical:four=goto_tab:4                       # ⌘ + 4
+keybind = super+physical:five=goto_tab:5                       # ⌘ + 5
+keybind = super+physical:six=goto_tab:6                        # ⌘ + 6
+keybind = super+physical:seven=goto_tab:7                      # ⌘ + 7
+keybind = super+physical:eight=goto_tab:8                      # ⌘ + 8
+keybind = super+physical:nine=last_tab                         # ⌘ + 9
+
+# ─────────────────────────────────────────────
+# 🧱 Split Management
+# ─────────────────────────────────────────────
+keybind = super+d=new_split:right                              # ⌘ + D
+keybind = super+shift+d=new_split:down                         # ⌘ + ⇧ + D
+keybind = super+ctrl+up=resize_split:up,10                     # ⌘ + ⌃ + ↑
+keybind = super+ctrl+down=resize_split:down,10                 # ⌘ + ⌃ + ↓
+keybind = super+ctrl+left=resize_split:left,10                 # ⌘ + ⌃ + ←
+keybind = super+ctrl+right=resize_split:right,10               # ⌘ + ⌃ + →
+keybind = super+ctrl+equal=equalize_splits                     # ⌘ + ⌃ + =
+keybind = super+alt+up=goto_split:up                           # ⌘ + ⌥ + ↑
+keybind = super+alt+down=goto_split:down                       # ⌘ + ⌥ + ↓
+keybind = super+alt+left=goto_split:left                       # ⌘ + ⌥ + ←
+keybind = super+alt+right=goto_split:right                     # ⌘ + ⌥ + →
+keybind = super+left_bracket=goto_split:previous               # ⌘ + [
+keybind = super+right_bracket=goto_split:next                  # ⌘ + ]
+keybind = super+shift+enter=toggle_split_zoom                  # ⌘ + ⇧ + ⏎
+
+# ─────────────────────────────────────────────
+# 📋 Copy & Paste
+# ─────────────────────────────────────────────
+keybind = super+c=copy_to_clipboard                            # ⌘ + C
+keybind = super+v=paste_from_clipboard                         # ⌘ + V
+keybind = super+shift+v=paste_from_selection                   # ⌘ + ⇧ + V
+keybind = super+shift+j=write_screen_file:paste                # ⌘ + ⇧ + J
+keybind = super+alt+shift+j=write_screen_file:open             # ⌘ + ⌥ + ⇧ + J
+
+# ─────────────────────────────────────────────
+# ✏️ Text Navigation
+# ─────────────────────────────────────────────
+keybind = super+backspace=text:\x15                            # ⌘ + ⌫ (clear line)
+keybind = super+left=text:\x01                                 # ⌘ + ← (start of line)
+keybind = super+right=text:\x05                                # ⌘ + → (end of line)
+keybind = alt+left=esc:b                                       # ⌥ + ← (back a word)
+keybind = alt+right=esc:f                                      # ⌥ + → (forward a word)
+
+# ─────────────────────────────────────────────
+# 🔠 Font Size
+# ─────────────────────────────────────────────
+keybind = super+equal=increase_font_size:1                     # ⌘ + =
+keybind = super+plus=increase_font_size:1                      # ⌘ + +
+keybind = super+minus=decrease_font_size:1                     # ⌘ + -
+keybind = super+zero=reset_font_size                           # ⌘ + 0
+
+# ─────────────────────────────────────────────
+# ⚙️ Configuration
+# ─────────────────────────────────────────────
+keybind = super+comma=open_config                              # ⌘ + ,
+keybind = super+shift+comma=reload_config                      # ⌘ + ⇧ + ,
+
+# ─────────────────────────────────────────────
+# 🔍 Inspector
+# ─────────────────────────────────────────────
+keybind = super+alt+i=inspector:toggle                         # ⌘ + ⌥ + I
+
+# ─────────────────────────────────────────────
+# 📜 Scrollback Navigation
+# ─────────────────────────────────────────────
+keybind = super+page_up=scroll_page_up                         # ⌘ + PgUp
+keybind = super+page_down=scroll_page_down                     # ⌘ + PgDn
+keybind = super+home=scroll_to_top                             # ⌘ + Home
+keybind = super+end=scroll_to_bottom                           # ⌘ + End
+keybind = super+up=jump_to_prompt:-1                           # ⌘ + ↑
+keybind = super+down=jump_to_prompt:1                          # ⌘ + ↓
+keybind = super+shift+up=jump_to_prompt:-1                     # ⌘ + ⇧ + ↑
+keybind = super+shift+down=jump_to_prompt:1                    # ⌘ + ⇧ + ↓
