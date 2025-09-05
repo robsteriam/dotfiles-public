@@ -47,19 +47,19 @@ This repository uses **[GNU Stow](https://www.gnu.org/software/stow/)** to manag
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/dotfiles.git ~/.dotfiles
+   git clone https://github.com/your-username/dotfiles.git ~/dotfiles
    ```
 
 2. **Install the necessary packages via Homebrew:**
 
    ```bash
-   brew bundle --file ~/.dotfiles/Brewfile
+   brew bundle --file ~/dotfiles/Brewfile
    ```
 
 3. **Navigate to the dotfiles directory:**
 
    ```bash
-   cd ~/.dotfiles
+   cd ~/dotfiles
    ```
 
 4. **Use `stow` to create symbolic links for the entire directory:**
