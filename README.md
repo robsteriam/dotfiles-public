@@ -56,8 +56,6 @@ This repository uses **[GNU Stow](https://www.gnu.org/software/stow/)** to manag
    brew bundle --file ~/.dotfiles/Brewfile
    ```
 
-   _(Note: This assumes you have a `Brewfile` in your repository. If not, you can install the packages manually.)_
-
 3. **Navigate to the dotfiles directory:**
 
    ```bash
