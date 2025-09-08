@@ -1,20 +1,21 @@
-local settings = require("settings")
+local sbar = require("sketchybar")
+local fonts = require("fonts")
 
 local cal = sbar.add("item", {
 	icon = {
 		font = {
-			family = settings.font.text,
-			style = settings.font.style_map["Regular"],
-			size = settings.font.size,
+			family = fonts.font_heavy.text,
+			style = fonts.font_heavy.style_map["Regular"],
+			size = fonts.font_heavy.size,
 		},
 		padding_left = 8,
 	},
 	label = {
 		align = "right",
 		font = {
-			family = settings.font.text,
-			style = settings.font.style_map["Regular"],
-			size = settings.font.size,
+			family = fonts.font_heavy.text,
+			style = fonts.font_heavy.style_map["Regular"],
+			size = fonts.font_heavy.size,
 		},
 		padding_right = 10,
 	},
@@ -24,6 +25,6 @@ local cal = sbar.add("item", {
 	padding_right = 1,
 })
 
-cal:subscribe({ "forced", "routine", "system_woke" }, function(env)
+cal:subscribe({ "forced", "routine", "system_woke" }, function()
 	cal:set({ icon = os.date("%a %b %d"), label = os.date("%I:%M %p") })
 end)
