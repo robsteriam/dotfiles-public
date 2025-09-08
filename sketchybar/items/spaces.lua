@@ -1,15 +1,6 @@
-local colors = require("colors")
-local settings = require("settings")
+local appearance = require("appearance")
 local app_icons = require("helpers.app_icons")
-
--- Workspace-specific colors (using active themes)
-local ws_colors = {
-	background = colors.accent_bright, -- Background around icons
-	icon_unfocused = colors.active.subtext0,
-	icon_focused = colors.active.mauve,
-	label_unfocused = colors.active.subtext0,
-	label_focused = colors.active.mauve,
-}
+local sbar = require("sketchybar")
 
 local workspace_names = {
 	["1"] = "Web",
@@ -22,8 +13,9 @@ local workspace_names = {
 	["8"] = "8",
 	["9"] = "9",
 	["A"] = "Code",
-	["B"] = "Web",
-	["C"] = "Misc",
+	["B"] = "SMS",
+	["C"] = "Bros",
+	["D"] = "Misc",
 }
 
 local query_workspaces =
@@ -97,7 +89,7 @@ local function updateWindow(workspace_index, args)
 
 	local icon_line = ""
 	local no_app = true
-	for i, open_window in ipairs(open_windows) do
+	for _, open_window in ipairs(open_windows) do
 		no_app = false
 		local app = open_window
 		local lookup = app_icons[app]
@@ -106,13 +98,13 @@ local function updateWindow(workspace_index, args)
 	end
 
 	sbar.animate("tanh", 10, function()
-		for i, visible_workspace in ipairs(visible_workspaces) do
+		for _, visible_workspace in ipairs(visible_workspaces) do
 			if no_app and workspace_index == visible_workspace["workspace"] then
 				local monitor_id = visible_workspace["monitor-appkit-nsscreen-screens-id"]
 				icon_line = " —"
 				workspaces[workspace_index]:set({
 					drawing = true,
-					label = { string = icon_line },
+					["label.string"] = icon_line,
 					display = monitor_id,
 				})
 				return
@@ -128,13 +120,13 @@ local function updateWindow(workspace_index, args)
 			icon_line = " —"
 			workspaces[workspace_index]:set({
 				drawing = true,
-				label = { string = icon_line },
+				["label.string"] = icon_line,
 			})
 		end
 
 		workspaces[workspace_index]:set({
 			drawing = true,
-			label = { string = icon_line },
+			["label.string"] = icon_line,
 		})
 	end)
 end
@@ -166,36 +158,30 @@ end
 sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	for _, entry in ipairs(workspaces_and_monitors) do
 		local workspace_index = entry.workspace
+		local style = appearance.styles.workspace
 
-		local workspace = sbar.add("item", {
-			background = {
-				color = ws_colors.background,
-				drawing = true,
-			},
+		local workspace = sbar.add("item", "workspace." .. workspace_index, {
+			background = style.background,
 			click_script = "aerospace workspace " .. workspace_index,
 			drawing = false, -- Hide all items at first
 			icon = {
-				color = ws_colors.icon_unfocused,
+				color = style.icon.color,
+				highlight_color = style.icon.highlight_color,
+				font = style.icon.font,
+				padding_left = style.icon.padding_left,
+				padding_right = style.icon.padding_right,
 				drawing = true,
-				font = {
-					family = settings.font.text,
-					style = settings.font.style_map["Bold"],
-					size = settings.font.size,
-				},
-				highlight_color = ws_colors.icon_focused,
-				padding_left = 12, -- left padding within workspaces labels
-				padding_right = 2, -- right padding between words and icons
 				string = workspace_index
 					.. (workspace_names[workspace_index] and ": " .. workspace_names[workspace_index] or ""),
 			},
 			label = {
-				color = ws_colors.label_unfocused,
+				color = style.label.color,
+				highlight_color = style.label.highlight_color,
+				font = style.label.font,
+				padding_left = style.label.padding_left,
+				padding_right = style.label.padding_right,
+				y_offset = style.label.y_offset,
 				drawing = true,
-				font = "sketchybar-app-font:Regular:16.0",
-				highlight_color = ws_colors.label_focused,
-				padding_left = 2, -- padding between icons and words in workspaces
-				padding_right = 12, -- padding between icons and right workspace
-				y_offset = -1,
 			},
 		})
 
@@ -235,7 +221,7 @@ sbar.exec(query_workspaces, function(workspaces_and_monitors)
 	end)
 
 	sbar.exec("aerospace list-workspaces --focused", function(focused_workspace)
-		local focused_workspace = focused_workspace:match("^%s*(.-)%s*$")
+		focused_workspace = focused_workspace:match("^%s*(.-)%s*$")
 		workspaces[focused_workspace]:set({
 			icon = { highlight = true },
 			label = { highlight = true },
