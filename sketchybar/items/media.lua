@@ -1,5 +1,6 @@
 local icons = require("icons")
-local colors = require("colors")
+local colors = require("appearance").colors
+local sbar = require("sketchybar")
 
 local whitelist = {
 	["Spotify"] = true,
