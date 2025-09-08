@@ -1,6 +1,8 @@
 local icons = require("icons")
-local colors = require("colors")
+local colors = require("appearance").colors
 local settings = require("settings")
+local sbar = require("sketchybar")
+local fonts = require("fonts")
 
 -- Execute the event provider binary which provides the event "cpu_update" for
 -- the cpu load data, which is fired every 2.0 seconds.
@@ -19,8 +21,8 @@ local cpu = sbar.add("graph", "widgets.cpu", 42, {
 	label = {
 		string = "cpu ??%",
 		font = {
-			family = settings.font.numbers,
-			style = settings.font.style_map["Bold"],
+			family = fonts.font.numbers,
+			style = fonts.font.style_map["Bold"],
 			size = 9.0,
 		},
 		align = "right",
@@ -53,7 +55,7 @@ cpu:subscribe("cpu_update", function(env)
 	})
 end)
 
-cpu:subscribe("mouse.clicked", function(env)
+cpu:subscribe("mouse.clicked", function()
 	sbar.exec("open -a 'Activity Monitor'")
 end)
 
