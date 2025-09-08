@@ -92,9 +92,11 @@ outer.right = [
 alt-a = 'workspace A'
 alt-b = 'workspace B'
 alt-c = 'workspace C'
+alt-d = 'workspace D'
 alt-shift-a = ['move-node-to-workspace A', 'workspace A']
 alt-shift-b = ['move-node-to-workspace B', 'workspace B']
 alt-shift-c = ['move-node-to-workspace C', 'workspace C']
+alt-shift-d = ['move-node-to-workspace D', 'workspace D']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -152,6 +154,7 @@ alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 A = 'LEN T2424zA'
 B = 'LEN T2424zA'
 C = 'LEN T2424zA'
+D = 'LEN T2424zA'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -185,13 +188,10 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 # Move applications to specific workspace
-# The idea is to have workspaces labeled after an application
-# In this case worksapce T for 'Terminal'
 # [[on-window-detected]]
 # if.app-id = "net.kovidgoyal.kitty"
 # run = "move-node-to-workspace T"
-
-# Workspace B for 'Browser'
+# 
 # [[on-window-detected]]
 # if.app-id = "com.google.chrome"
 # run = "move-node-to-workspace B"
@@ -219,3 +219,45 @@ run = "layout floating"
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
 run = ["layout tiling"]
+
+[[on-window-detected]]
+if.app-id = 'net.freemacsoft.AppCleaner'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.kaymbu.parentapp'
+run = ['layout floating']
+
+# Move to Workspace A
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = ['move-node-to-workspace A']
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = ['move-node-to-workspace A']
+
+# Move to Workspace B
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = ['move-node-to-workspace B']
+
+[[on-window-detected]]
+if.app-id = 'org.whispersystems.signal-desktop'
+run = ['move-node-to-workspace B']
+
+# Move to Workspace C
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ['move-node-to-workspace C']
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = ['move-node-to-workspace C']
+
+[[on-window-detected]]
+if.app-id = '.*'
+run = ['move-node-to-workspace 1']
