@@ -1,5 +1,4 @@
-local settings = require("settings")
-
+local settings = require("fonts")
 local icons = {
 	sf_symbols = {
 		plus = "􀅼",
@@ -85,7 +84,7 @@ local icons = {
 	},
 }
 
-if not (settings.icons == "NerdFont") then
+if not (fonts.icons == "NerdFont") then
 	return icons.sf_symbols
 else
 	return icons.nerdfont
