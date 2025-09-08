@@ -1,8 +1,10 @@
-local colors = require("colors")
+local colors = require("appearance").colors
 local icons = require("icons")
 local settings = require("settings")
+local sbar = require("sketchybar")
+local fonts = require("fonts")
 
-local popup_width = 150
+local popup_width = 250
 
 -- Volume percentage display
 local volume_percent = sbar.add("item", "widgets.volume1", {
@@ -12,7 +14,7 @@ local volume_percent = sbar.add("item", "widgets.volume1", {
 		string = "??%",
 		padding_left = -1,
 		padding_right = settings.padding.icon_label_item.label.padding_right,
-		font = { family = settings.font.numbers },
+		font = { family = fonts.font.numbers },
 		align = "right",
 	},
 	background = { drawing = false },
@@ -22,7 +24,7 @@ local volume_percent = sbar.add("item", "widgets.volume1", {
 local volume_icon = sbar.add("item", "widgets.volume2", {
 	position = "right",
 	icon = {
-		color = colors.white,
+		color = colors.green, -- Volume icon color
 		font = { size = 14.0 },
 		padding_left = settings.padding.icon_label_item.icon.padding_left - 4,
 		padding_right = settings.padding.icon_item.icon.padding_right - 10,
@@ -68,11 +70,11 @@ local volume_slider = sbar.add("slider", popup_width, {
 volume_percent:subscribe("volume_change", function(env)
 	local volume = tonumber(env.INFO)
 	local icon = icons.volume._0
-	if volume > 60 then
+	if volume > 90 then
 		icon = icons.volume._100
-	elseif volume > 30 then
+	elseif volume > 60 then
 		icon = icons.volume._66
-	elseif volume > 10 then
+	elseif volume > 30 then
 		icon = icons.volume._33
 	elseif volume > 0 then
 		icon = icons.volume._10
@@ -111,7 +113,7 @@ local function volume_toggle_details(env)
 		sbar.exec("SwitchAudioSource -t output -c", function(result)
 			current_audio_device = result:sub(1, -2)
 			sbar.exec("SwitchAudioSource -a -t output", function(available)
-				current = current_audio_device
+				local current = current_audio_device
 				local counter = 0
 
 				for device in string.gmatch(available, "[^\r\n]+") do
