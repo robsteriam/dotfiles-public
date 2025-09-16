@@ -149,16 +149,6 @@ alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
-<<<<<<< HEAD
-# See: https://nikitabobko.github.io/AeroSpace/guide#assign-to-workspaces-to-monitors
-[workspace-to-monitor-force-assignment]
-A = 'LEN T2424zA'
-B = 'LEN T2424zA'
-C = 'LEN T2424zA'
-D = 'LEN T2424zA'
-
-=======
->>>>>>> 23b293a (Refactor app detection and add workspace rules)
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -198,17 +188,7 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 # Move applications to specific workspace
-<<<<<<< HEAD
-# [[on-window-detected]]
-# if.app-id = "net.kovidgoyal.kitty"
-# run = "move-node-to-workspace T"
-# 
-# [[on-window-detected]]
-# if.app-id = "com.google.chrome"
-# run = "move-node-to-workspace B"
-=======
 # aerospace list-apps displays: Process ID | App ID | App Name
->>>>>>> 23b293a (Refactor app detection and add workspace rules)
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'SFSymbols|Finder|Microsoft AutoUpdate|Activity Monitor|ImageOptim|AppCleaner|parentapp'
@@ -218,15 +198,6 @@ run = ['layout floating']
 if.app-id = "com.mitchellh.ghostty"
 run = ["layout tiling"]
 
-<<<<<<< HEAD
-[[on-window-detected]]
-if.app-id = 'net.freemacsoft.AppCleaner'
-run = ['layout floating']
-
-[[on-window-detected]]
-if.app-id = 'com.kaymbu.parentapp'
-run = ['layout floating']
-=======
 # Move to Workspace 4 - Editing
 
 [[on-window-detected]]
@@ -244,51 +215,21 @@ run = ['move-node-to-workspace 5']
 [[on-window-detected]]
 if.app-name-regex-substring = 'Microsoft Edge|Microsoft Teams|Microsoft Outlook'
 run = ['move-node-to-workspace 6']
->>>>>>> 23b293a (Refactor app detection and add workspace rules)
 
 # Move to Workspace A
 
 [[on-window-detected]]
-<<<<<<< HEAD
-if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace A']
-
-[[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-=======
 if.app-name-regex-substring = 'Code|Zen'
->>>>>>> 23b293a (Refactor app detection and add workspace rules)
 run = ['move-node-to-workspace A']
 
 # Move to Workspace B
 
 [[on-window-detected]]
-<<<<<<< HEAD
-if.app-id = 'com.apple.MobileSMS'
-run = ['move-node-to-workspace B']
-
-[[on-window-detected]]
-if.app-id = 'org.whispersystems.signal-desktop'
-=======
 if.app-name-regex-substring = 'Messages|Signal'
->>>>>>> 23b293a (Refactor app detection and add workspace rules)
 run = ['move-node-to-workspace B']
 
 # Move to Workspace C
 
 [[on-window-detected]]
-<<<<<<< HEAD
-if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace C']
-
-[[on-window-detected]]
-if.app-id = 'net.whatsapp.WhatsApp'
-run = ['move-node-to-workspace C']
-
-[[on-window-detected]]
-if.app-id = '.*'
-run = ['move-node-to-workspace 1']
-=======
 if.app-name-regex-substring = 'WhatsApp|Discord'
 run = ['move-node-to-workspace C']
->>>>>>> 23b293a (Refactor app detection and add workspace rules)
