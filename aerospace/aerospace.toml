@@ -2,6 +2,8 @@
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 after-login-command = []
 
+# TODO: Customize these commands to launch your own status bar or other startup applications.
+# NOTE: 'exec-and-forget' runs a command in the background without waiting for it to finish.
 after-startup-command = [
   "exec-and-forget sketchybar",
   "exec-and-forget borders active_color=0xFFEB212E inactive_color=0xFF494D64 width=5.0",
@@ -33,8 +35,9 @@ default-root-container-layout = 'tiles'
 #               tall monitor (anything higher than wide) gets vertical orientation
 default-root-container-orientation = 'auto'
 
-# Mouse follows focus when focused monitor changes
-# Drop it from your config, if you don't like this behavior
+# NOTE: These settings automatically center the mouse cursor on the focused window or monitor.
+# This is a personal preference. Comment out or remove these lines if you don't like this behavior.
+
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = "move-mouse window-lazy-center"
@@ -46,6 +49,10 @@ automatically-unhide-macos-hidden-apps = false
 # Possible values: (qwerty|dvorak)
 [key-mapping]
 preset = 'qwerty'
+
+# TODO: Customize your gaps and monitor names here.
+# To find your monitor names, run the command: aerospace list-monitors
+# NOTE: The last value in each list (e.g., '5') is the fallback for any monitor not explicitly named.
 
 [gaps]
 inner.horizontal = [
@@ -88,6 +95,8 @@ outer.right = [
 # 'main' binding mode declaration
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
+# NOTE: This config uses 'alt' as the main modifier key (Mod Key).
+
 [mode.main.binding]
 alt-a = 'workspace A'
 alt-b = 'workspace B'
@@ -157,6 +166,10 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
+# TODO: Change 'LEN T2424zA' to your primary or secondary monitor name if you want to pin workspaces.
+# Run 'aerospace list-monitors' to find the name.
+# NOTE: This forces workspaces A, B, C, and D to always appear on a specific monitor.
+
 # See: https://nikitabobko.github.io/AeroSpace/guide#assign-to-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]
 A = 'LEN T2424zA'
@@ -165,6 +178,9 @@ C = 'LEN T2424zA'
 D = 'LEN T2424zA'
 
 # 'service' binding mode declaration.
+# NOTE: This mode is activated by pressing 'alt-shift-semicolon'. It contains less common commands.
+# Press 'esc' to return to 'main' mode.
+
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
@@ -188,8 +204,11 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 # Move applications to specific workspace
-# aerospace list-apps displays: Process ID | App ID | App Name
+# NOTE: The following rules automatically move apps to workspaces or make them float when they open.
+# Use 'aerospace list-apps' to find the 'app-id' and 'app-name' for your own applications.
+# Format of 'aerospace list-apps': Process ID | App ID | App Name
 
+# TODO: Add your own utility apps here that you always want to float.
 [[on-window-detected]]
 if.app-name-regex-substring = 'SFSymbols|Finder|Microsoft AutoUpdate|Activity Monitor|ImageOptim|AppCleaner|parentapp'
 run = ['layout floating']
@@ -197,6 +216,8 @@ run = ['layout floating']
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
 run = ["layout tiling"]
+
+# TODO: Customize or delete the following app-to-workspaces rules to match your workflow.
 
 # Move to Workspace 4 - Editing
 
@@ -210,25 +231,25 @@ run = ['move-node-to-workspace 4']
 if.app-name-regex-substring = 'NVIDIA|Boosteroid'
 run = ['move-node-to-workspace 5']
 
-# Move to Workspace 6 - Work
+# Move to Workspace 6 - Work/Office Apps
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Microsoft Edge|Microsoft Teams|Microsoft Outlook'
 run = ['move-node-to-workspace 6']
 
-# Move to Workspace A
+# Move to Workspace A - Code editors and development tools.
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Code|Zen'
 run = ['move-node-to-workspace A']
 
-# Move to Workspace B
+# Move to Workspace B - Messaging Apps.
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Messages|Signal'
 run = ['move-node-to-workspace B']
 
-# Move to Workspace C
+# Move to Workspace C - Social/Chat Apps.
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'WhatsApp|Discord'
