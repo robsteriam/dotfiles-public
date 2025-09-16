@@ -118,9 +118,9 @@ alt-shift-l = 'move right'
 alt-ctrl-h = 'split horizontal'
 alt-ctrl-v = 'split vertical'
 alt-f = 'macos-native-fullscreen'
-# alt-s = 'layout v_accordion'
-# alt-w = 'layout h_accordion'
-# alt-e = 'layout tiles horizontal vertical'
+alt-s = 'layout v_accordion'
+alt-w = 'layout h_accordion'
+alt-e = 'layout tiles horizontal vertical'
 alt-shift-space = 'layout floating tiling'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
@@ -149,6 +149,7 @@ alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
+<<<<<<< HEAD
 # See: https://nikitabobko.github.io/AeroSpace/guide#assign-to-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]
 A = 'LEN T2424zA'
@@ -156,6 +157,8 @@ B = 'LEN T2424zA'
 C = 'LEN T2424zA'
 D = 'LEN T2424zA'
 
+=======
+>>>>>>> 23b293a (Refactor app detection and add workspace rules)
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
@@ -163,6 +166,13 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#assign-to-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+A = 'LEN T2424zA'
+B = 'LEN T2424zA'
+C = 'LEN T2424zA'
+D = 'LEN T2424zA'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -188,6 +198,7 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 # Move applications to specific workspace
+<<<<<<< HEAD
 # [[on-window-detected]]
 # if.app-id = "net.kovidgoyal.kitty"
 # run = "move-node-to-workspace T"
@@ -195,31 +206,19 @@ shift-down = ['volume set 0', 'mode main']
 # [[on-window-detected]]
 # if.app-id = "com.google.chrome"
 # run = "move-node-to-workspace B"
+=======
+# aerospace list-apps displays: Process ID | App ID | App Name
+>>>>>>> 23b293a (Refactor app detection and add workspace rules)
 
 [[on-window-detected]]
-if.app-id = "com.apple.SFSymbols"
-run = "layout floating"
-
-[[on-window-detected]]
-if.app-id = "com.apple.finder"
-run = "layout floating"
-
-[[on-window-detected]]
-if.app-id = "com.microsoft.autoupdate2"
-run = "layout floating"
-
-[[on-window-detected]]
-if.app-id = "com.apple.ActivityMonitor"
-run = "layout floating"
-
-[[on-window-detected]]
-if.app-id = "net.pornel.ImageOptim"
-run = "layout floating"
+if.app-name-regex-substring = 'SFSymbols|Finder|Microsoft AutoUpdate|Activity Monitor|ImageOptim|AppCleaner|parentapp'
+run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
 run = ["layout tiling"]
 
+<<<<<<< HEAD
 [[on-window-detected]]
 if.app-id = 'net.freemacsoft.AppCleaner'
 run = ['layout floating']
@@ -227,30 +226,58 @@ run = ['layout floating']
 [[on-window-detected]]
 if.app-id = 'com.kaymbu.parentapp'
 run = ['layout floating']
+=======
+# Move to Workspace 4 - Editing
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Final Cut Pro|OBS Studio|Motion|Compressor'
+run = ['move-node-to-workspace 4']
+
+# Move to Workspace 5 - Gaming
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'NVIDIA|Boosteroid'
+run = ['move-node-to-workspace 5']
+
+# Move to Workspace 6 - Work
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Microsoft Edge|Microsoft Teams|Microsoft Outlook'
+run = ['move-node-to-workspace 6']
+>>>>>>> 23b293a (Refactor app detection and add workspace rules)
 
 # Move to Workspace A
 
 [[on-window-detected]]
+<<<<<<< HEAD
 if.app-id = 'com.microsoft.VSCode'
 run = ['move-node-to-workspace A']
 
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
+=======
+if.app-name-regex-substring = 'Code|Zen'
+>>>>>>> 23b293a (Refactor app detection and add workspace rules)
 run = ['move-node-to-workspace A']
 
 # Move to Workspace B
 
 [[on-window-detected]]
+<<<<<<< HEAD
 if.app-id = 'com.apple.MobileSMS'
 run = ['move-node-to-workspace B']
 
 [[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'
+=======
+if.app-name-regex-substring = 'Messages|Signal'
+>>>>>>> 23b293a (Refactor app detection and add workspace rules)
 run = ['move-node-to-workspace B']
 
 # Move to Workspace C
 
 [[on-window-detected]]
+<<<<<<< HEAD
 if.app-id = 'com.hnc.Discord'
 run = ['move-node-to-workspace C']
 
@@ -261,3 +288,7 @@ run = ['move-node-to-workspace C']
 [[on-window-detected]]
 if.app-id = '.*'
 run = ['move-node-to-workspace 1']
+=======
+if.app-name-regex-substring = 'WhatsApp|Discord'
+run = ['move-node-to-workspace C']
+>>>>>>> 23b293a (Refactor app detection and add workspace rules)
