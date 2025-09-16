@@ -72,8 +72,5 @@ This repository uses **[GNU Stow](https://www.gnu.org/software/stow/)** to manag
 
 ### **Screenshots**
 
-![Desktop](example.png)
-
-### **License**
-
-This repository is licensed under the **[GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)**.
+![Primary Monitor](./primary-horizontal-monitor.png)
+![Secondary Monitor](./second-vertical-monitor.png)
