@@ -2,6 +2,8 @@
 
 These are the personal configuration files for my macOS setup, designed for akeyboard driven workflow. This is a work in progress and will constantly change over time. I'm having fun, enjoying the process and learning.
 
+Link to the [Wiki](https://github.com/robsteriam/dotfiles-public/wiki).
+
 ---
 
 ## **Key Features**
