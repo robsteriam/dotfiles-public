@@ -2,7 +2,9 @@
 
 These are the personal configuration files for my macOS setup, designed for akeyboard driven workflow. This is a work in progress and will constantly change over time. I'm having fun, enjoying the process and learning.
 
-Link to the [Wiki](https://github.com/robsteriam/dotfiles-public/wiki).
+Explore the documentation on the **[Wiki](https://github.com/robsteriam/dotfiles-public/wiki)** or see it in action in the video demo below.
+
+[![macOS Setup: Aerospace, Sketchybar, JankyBorders, Raycast, Kitty, etc.](https://img.youtube.com/vi/Nozqf0ZCiPw/maxresdefault.jpg)](https://youtu.be/Nozqf0ZCiPw?si=z1MuF0Y4N9s8L3jU)
 
 ---
 
