@@ -67,7 +67,7 @@ Clicking on the package name will open their GitHub page.
 
 Snippet of Brewfile
 ```bash
-# The "Brewfile" will automatically install everything listed below.
+# The "Brewfile" will automatically install everything listed below that is uncommented.
 # Items marked as "tap" are repositories for formulas and casks.
 # "brew" items are command-line tools.
 # "cask" items are GUI applications.
