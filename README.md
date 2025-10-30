@@ -86,7 +86,7 @@ tap "nikitabobko/tap"          # Tap for the yazi terminal file manager
 # ==========================
 brew "coreutils"               # GNU core utilities (e.g., `ls`, `grep`)
 brew "git"                     # Version control system
-brew "neovim"                  # A highly extensible Vim-based text editor
+# brew "neovim"                  # A highly extensible Vim-based text editor
 ...
 ```
 
