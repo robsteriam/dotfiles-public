@@ -5,8 +5,7 @@ after-login-command = []
 # TODO: Customize these commands to launch your own status bar or other startup applications.
 # NOTE: 'exec-and-forget' runs a command in the background without waiting for it to finish.
 after-startup-command = [
-  "exec-and-forget sketchybar",
-  "exec-and-forget borders active_color=0xFFEB212E inactive_color=0xFF494D64 width=5.0",
+  "exec-and-forget sketchybar"
 ]
 
 # 'after-startup-command' is run after 'after-login-command'
@@ -166,7 +165,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
-# TODO: Change 'LEN T2424zA' to your primary or secondary monitor name if you want to pin workspaces.
+# TODO: Change or Delete 'LEN T2424zA' to your primary or secondary monitor name if you want to pin workspaces.
 # Run 'aerospace list-monitors' to find the name.
 # NOTE: This forces workspaces A, B, C, and D to always appear on a specific monitor.
 
