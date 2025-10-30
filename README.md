@@ -61,6 +61,35 @@ Clicking on the package name will open their GitHub page.
 
 ---
 
+### **Pre-Installation**
+
+- Before running the script, `open config/brew/Brewfile` to choose which packages you want to install. You can comment or uncomment lines to include or exclude specific packages. If you know the package names, you can also add new ones here to have them installed automatically.
+
+Snippet of Brewfile
+```bash
+# The "Brewfile" will automatically install everything listed below.
+# Items marked as "tap" are repositories for formulas and casks.
+# "brew" items are command-line tools.
+# "cask" items are GUI applications.
+# "vscode" items are VS Code extensions.
+
+# ==========================
+#   Taps (keep only needed)
+# ==========================
+# Essential taps for core system utilities and theming
+tap "felixkratz/formulae"      # Tap for sketchybar and borders (macOS utilities)
+tap "koekeishiya/formulae"     # Tap for macOS window managers like skhd and yabai
+tap "nikitabobko/tap"          # Tap for the yazi terminal file manager
+
+# ==========================
+#   CLI Tools
+# ==========================
+brew "coreutils"               # GNU core utilities (e.g., `ls`, `grep`)
+brew "git"                     # Version control system
+brew "neovim"                  # A highly extensible Vim-based text editor
+...
+```
+
 ### **Installation**
 
 Clone and bootstrap in one step:
