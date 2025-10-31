@@ -1,38 +1,165 @@
-# Essential taps for the core configuration
-tap "felixkratz/formulae"
-tap "homebrew/services"
-tap "koekeishiya/formulae"
+# The "Brewfile" will automatically install everything listed below.
+# Items marked as "tap" are repositories for formulas and casks.
+# "brew" items are command-line tools.
+# "cask" items are GUI applications.
+# "vscode" items are VS Code extensions.
 
-# Core packages for the dotfiles
-brew "coreutils" # Needed for dircolors
-brew "dircolors"
-brew "neofetch"
-brew "neovim"
-brew "starship"
-brew "stow"
-brew "tmux"
-brew "zsh"
-brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
+# ==========================
+#   Taps (keep only needed)
+# ==========================
+# Essential taps for core system utilities and theming
+tap "felixkratz/formulae"      # Tap for sketchybar and borders (macOS utilities)
+tap "koekeishiya/formulae"     # Tap for macOS window managers like skhd and yabai
+tap "nikitabobko/tap"          # Tap for the yazi terminal file manager
 
-# Dependencies for key applications
-brew "felixkratz/formulae/borders"
-brew "felixkratz/formulae/sketchybar"
-brew "koekeishiya/formulae/skhd" # Recommended for Aerospace keybindings
-brew "lua" # Required for Neovim (LazyVim)
+# ==========================
+#   CLI Tools
+# ==========================
+brew "coreutils"               # GNU core utilities (e.g., `ls`, `grep`)
+brew "git"                     # Version control system
+brew "neovim"                  # A highly extensible Vim-based text editor
+brew "starship"                # Minimal, fast, and customizable shell prompt
+brew "stow"                    # Symlink manager for dotfiles
+brew "tmux"                    # Terminal multiplexer
+brew "zsh-autosuggestions"     # Suggests commands as you type in Zsh
+brew "zsh-syntax-highlighting" # Syntax highlighting for Zsh
+brew "wget"                    # Non-interactive file downloader
+brew "lazygit"                 # A terminal UI for Git
 
-# Dependencies for LayzVim
-brew "git"
-brew "curl"
-brew "fzf"
-brew "ripgrep"
-brew "fd"
-# A C compiler is needed for nvim-treesitter. macOS comes with the `clang` compiler,
-# which works well. If you are on a different OS, you may need to install one (e.g., `gcc`).
+# Development Tools & Languages
+brew "azure-cli"               # Command-line interface for Microsoft Azure
+# brew "bitwarden-cli"           # Command-line interface for Bitwarden password manager
+# brew "gh"                      # GitHub CLI
+brew "gnupg"                   # GNU Privacy Guard for secure communication
+brew "go"                      # The Go programming language
+brew "hugo"                    # Static site generator
+brew "lua"                     # Lightweight programming language (used by Neovim)
+brew "rust"                    # The Rust programming language
+brew "docker"
+brew "python"
+brew "pipx"
+brew "colima"
 
-# Core Casks (GUI applications)
-cask "aerospace"
-cask "font-fira-code-nerd-font" # Or whichever nerd font you use
-cask "ghostty"
-cask "kitty"
-cask "raycast"
+# Node Package Managers
+brew "node"                    # Node.js JavaScript runtime
+brew "pnpm"                    # Fast and disk-efficient Node.js package manager
+
+# Useful CLI helpers
+brew "btop"                    # Resource monitor
+brew "ripgrep"                 # Fast, recursive file searching (like a better `grep`)
+brew "fd"                      # Simple, fast and user-friendly alternative to `find`
+brew "fzf"                     # A command-line fuzzy finder
+brew "codex"                   # Text search and replacement utility
+brew "colordiff"               # Colorized `diff` output
+brew "gemini-cli"              # Command-line tool for Gemini protocol
+brew "iproute2mac"             # Shows IP and network info (like Linux `ip`)
+brew "jq"                      # Command-line JSON processor
+brew "neofetch"                # Displays system information in the terminal
+brew "tlrc"                    # Command-line tool for searching `tldr` pages
+
+# ==========================
+#   Tapped Formulas
+# ==========================
+brew "felixkratz/formulae/borders"    # macOS utility for window borders
+brew "felixkratz/formulae/sketchybar" # A highly configurable status bar for macOS
+
+# ==========================
+#   Casks (GUI Apps)
+# ==========================
+cask "aerospace"               # Tiling window manager for macOS
+cask "kitty"                   # A fast, GPU-based terminal emulator
+cask "ghostty"                 # A fast, GPU-based terminal emulator
+cask "sf-symbols"              # Apple's vector icons for developers
+cask "bitwarden"               # Password manager
+cask "postman"                 # API development and testing tool
+cask "raycast"                 # A powerful launcher and productivity tool
+cask "powershell"              # Microsoft PowerShell for macOS
+
+# Fonts
+cask "font-awesome-terminal-fonts" # Terminal icons
+cask "font-fira-code-nerd-font"    # Nerd Font for code ligatures and icons
+cask "font-gohufont-nerd-font"     # Nerd Font
+cask "font-hack-nerd-font"         # Nerd Font
+cask "font-heavy-data-nerd-font"   # Nerd Font
+cask "font-powerline-symbols"      # Symbols for Powerline
+cask "font-sf-pro"                 # Apple's system font
+cask "font-sketchybar-app-font"    # Font for sketchybar icons
+
+# Work Apps
+# cask "asana"                   # Task management application
+# cask "cursor"                  # AI-first code editor
+# cask "microsoft-auto-update"   # Microsoft software updater
+cask "microsoft-edge"          # Web browser
+# cask "microsoft-office-businesspro" # Microsoft Office suite
+cask "windows-app"             # Tool for Windows applications on macOS
+cask "zoom"                    # Video conferencing tool
+cask "visual-studio-code"      # A popular code editor
+
+# Other Tools
+# brew "minicom"                 # Serial communication program
+# brew "nmap"                    # Network discovery and security auditing tool
+# brew "openvpn"                 # Open-source VPN software
+# brew "switchaudio-osx"         # Command-line tool to change audio input/output
+# brew "telnet"                  # Remote connection protocol
+# brew "wakeonlan"               # Wakes up devices on your network
+# brew "wireshark"               # Network protocol analyzer
+# brew "yazi"                    # A modern terminal file manager
+# brew "yq"                      # Command-line YAML, XML, and JSON processor
+# brew "certbot"                 # Tool for getting SSL certificates from Let's Encrypt
+
+# Development & System Tools
+# cask "android-studio"          # IDE for Android app development
+# cask "appcleaner"              # Uninstaller for macOS applications
+# cask "chrome-remote-desktop-host" # Host for Chrome's remote access
+# cask "figma"                   # Collaborative design tool
+cask "google-chrome"           # Web browser
+# cask "google-drive"            # Desktop client for Google Drive
+# cask "imageoptim"              # Image optimization tool
+# cask "inkscape"                # Vector graphics editor
+# cask "karabiner-elements"      # Keyboard remapping tool
+# cask "libndi"                  # Library for network device interface
+# cask "local"                   # Local WordPress development environment
+cask "notion"                  # All-in-one workspace
+# cask "notion-calendar"         # Calendar app
+# cask "notion-mail"             # Mail app
+# cask "royal-tsx"               # Remote connection manager
+# cask "sigmaos"                 # A modern, productivity-focused web browser
+cask "twingate"                # Secure remote access client
+# cask "vnc-viewer"              # VNC client for remote desktop access
+# cask "wireshark-chmodbpf"      # Helper to allow Wireshark packet capture
+# cask "zap"                     # Web application security scanner
+# cask "zen"                     # A firefox based browser
+# cask "zenmap"                  # GUI for Nmap
+# cask "zoho-mail"               # Email client
+
+# Media & Communication
+# cask "audacity"                # Audio editor
+# cask "betterdiscord-installer" # Adds features to Discord
+# cask "boosteroid"              # Cloud gaming service
+# cask "capcut"                  # Video editor
+# cask "discord"                 # Communication platform
+# cask "elgato-control-center"   # Software for Elgato lights and devices
+# cask "elgato-stream-deck"      # Software for Elgato Stream Deck
+# cask "firefox"                 # Web browser
+# cask "obs"                     # Open Broadcaster Software for streaming
+# cask "overlayed"               # Streaming tool
+cask "signal"                  # Secure messaging app
+cask "spotify"                 # Music streaming service
+# cask "steam"                   # Gaming platform
+# cask "streamlabs"              # Streaming software
+# cask "telegram"                # Messaging app
+# cask "vlc"                     # Media player
+cask "whatsapp"                # Messaging app
+
+
+# --- VS Code Extensions ---
+# Thematic & UI
+vscode "dracula-theme.theme-dracula"        # Dracula theme
+# vscode "github.github-vscode-theme"         # GitHub's official theme
+vscode "pkief.material-icon-theme"          # Material Design icons
+# vscode "tal7aouy.theme"                     # Another theme
+# vscode "vscode-icons-team.vscode-icons"     # VS Code icons
+
+# Development & Language Support
+# vscode "donjayamanne.python-environment-manager" # Python environment manager
+# vscode "donjayamanne.python-extension-pack"
