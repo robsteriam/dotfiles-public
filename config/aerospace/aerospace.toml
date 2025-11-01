@@ -82,6 +82,7 @@ outer.top = [
   { monitor."Built-in Retina Display" = 4 },
   { monitor."LC49G95T" = 40 },
   { monitor."LEN T2424zA" = 40 },
+  { monitor."Ripsaw HD" = 40 },
   5,
 ]
 outer.right = [
@@ -171,10 +172,15 @@ alt-shift-semicolon = 'mode service'
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#assign-to-workspaces-to-monitors
 [workspace-to-monitor-force-assignment]
-A = 'LEN T2424zA'
-B = 'LEN T2424zA'
-C = 'LEN T2424zA'
-D = 'LEN T2424zA'
+# A = 'LEN T2424zA'
+# B = 'LEN T2424zA'
+# C = 'LEN T2424zA'
+# D = 'LEN T2424zA'
+
+A = 'Ripsaw HD'
+B = 'Ripsaw HD'
+C = 'Ripsaw HD'
+D = 'Ripsaw HD'
 
 # 'service' binding mode declaration.
 # NOTE: This mode is activated by pressing 'alt-shift-semicolon'. It contains less common commands.
