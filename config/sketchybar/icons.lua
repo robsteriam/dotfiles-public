@@ -1,4 +1,4 @@
-local settings = require("fonts")
+local fonts = require("fonts")
 local icons = {
 	sf_symbols = {
 		plus = "􀅼",
