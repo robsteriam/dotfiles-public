@@ -27,35 +27,35 @@ brew "wget"                    # Non-interactive file downloader
 brew "lazygit"                 # A terminal UI for Git
 
 # Development Tools & Languages
-brew "azure-cli"               # Command-line interface for Microsoft Azure
+# brew "azure-cli"               # Command-line interface for Microsoft Azure
 # brew "bitwarden-cli"           # Command-line interface for Bitwarden password manager
 # brew "gh"                      # GitHub CLI
-brew "gnupg"                   # GNU Privacy Guard for secure communication
-brew "go"                      # The Go programming language
-brew "hugo"                    # Static site generator
+# brew "gnupg"                   # GNU Privacy Guard for secure communication
+# brew "go"                      # The Go programming language
+# brew "hugo"                    # Static site generator
 brew "lua"                     # Lightweight programming language (used by Neovim)
-brew "rust"                    # The Rust programming language
-brew "docker"
-brew "python"
-brew "pipx"
-brew "colima"
+# brew "rust"                    # The Rust programming language
+# brew "docker"
+# brew "python"
+# brew "pipx"
+# brew "colima"
 
 # Node Package Managers
-brew "node"                    # Node.js JavaScript runtime
-brew "pnpm"                    # Fast and disk-efficient Node.js package manager
+# brew "node"                    # Node.js JavaScript runtime
+# brew "pnpm"                    # Fast and disk-efficient Node.js package manager
 
 # Useful CLI helpers
-brew "btop"                    # Resource monitor
+# brew "btop"                    # Resource monitor
 brew "ripgrep"                 # Fast, recursive file searching (like a better `grep`)
 brew "fd"                      # Simple, fast and user-friendly alternative to `find`
 brew "fzf"                     # A command-line fuzzy finder
-brew "codex"                   # Text search and replacement utility
-brew "colordiff"               # Colorized `diff` output
-brew "gemini-cli"              # Command-line tool for Gemini protocol
-brew "iproute2mac"             # Shows IP and network info (like Linux `ip`)
-brew "jq"                      # Command-line JSON processor
+# brew "codex"                   # Text search and replacement utility
+# brew "colordiff"               # Colorized `diff` output
+# brew "gemini-cli"              # Command-line tool for Gemini protocol
+# brew "iproute2mac"             # Shows IP and network info (like Linux `ip`)
+# brew "jq"                      # Command-line JSON processor
 brew "neofetch"                # Displays system information in the terminal
-brew "tlrc"                    # Command-line tool for searching `tldr` pages
+# brew "tlrc"                    # Command-line tool for searching `tldr` pages
 
 # ==========================
 #   Tapped Formulas
@@ -71,9 +71,9 @@ cask "kitty"                   # A fast, GPU-based terminal emulator
 cask "ghostty"                 # A fast, GPU-based terminal emulator
 cask "sf-symbols"              # Apple's vector icons for developers
 cask "bitwarden"               # Password manager
-cask "postman"                 # API development and testing tool
-cask "raycast"                 # A powerful launcher and productivity tool
-cask "powershell"              # Microsoft PowerShell for macOS
+# cask "postman"                 # API development and testing tool
+# cask "raycast"                 # A powerful launcher and productivity tool
+# cask "powershell"              # Microsoft PowerShell for macOS
 
 # Fonts
 cask "font-awesome-terminal-fonts" # Terminal icons
@@ -89,11 +89,11 @@ cask "font-sketchybar-app-font"    # Font for sketchybar icons
 # cask "asana"                   # Task management application
 # cask "cursor"                  # AI-first code editor
 # cask "microsoft-auto-update"   # Microsoft software updater
-cask "microsoft-edge"          # Web browser
+# cask "microsoft-edge"          # Web browser
 # cask "microsoft-office-businesspro" # Microsoft Office suite
-cask "windows-app"             # Tool for Windows applications on macOS
-cask "zoom"                    # Video conferencing tool
-cask "visual-studio-code"      # A popular code editor
+# cask "windows-app"             # Tool for Windows applications on macOS
+# cask "zoom"                    # Video conferencing tool
+# cask "visual-studio-code"      # A popular code editor
 
 # Other Tools
 # brew "minicom"                 # Serial communication program
@@ -112,19 +112,19 @@ cask "visual-studio-code"      # A popular code editor
 # cask "appcleaner"              # Uninstaller for macOS applications
 # cask "chrome-remote-desktop-host" # Host for Chrome's remote access
 # cask "figma"                   # Collaborative design tool
-cask "google-chrome"           # Web browser
+# cask "google-chrome"           # Web browser
 # cask "google-drive"            # Desktop client for Google Drive
 # cask "imageoptim"              # Image optimization tool
 # cask "inkscape"                # Vector graphics editor
 # cask "karabiner-elements"      # Keyboard remapping tool
 # cask "libndi"                  # Library for network device interface
 # cask "local"                   # Local WordPress development environment
-cask "notion"                  # All-in-one workspace
+# cask "notion"                  # All-in-one workspace
 # cask "notion-calendar"         # Calendar app
 # cask "notion-mail"             # Mail app
 # cask "royal-tsx"               # Remote connection manager
 # cask "sigmaos"                 # A modern, productivity-focused web browser
-cask "twingate"                # Secure remote access client
+# cask "twingate"                # Secure remote access client
 # cask "vnc-viewer"              # VNC client for remote desktop access
 # cask "wireshark-chmodbpf"      # Helper to allow Wireshark packet capture
 # cask "zap"                     # Web application security scanner
@@ -143,20 +143,20 @@ cask "twingate"                # Secure remote access client
 # cask "firefox"                 # Web browser
 # cask "obs"                     # Open Broadcaster Software for streaming
 # cask "overlayed"               # Streaming tool
-cask "signal"                  # Secure messaging app
-cask "spotify"                 # Music streaming service
+# cask "signal"                  # Secure messaging app
+# cask "spotify"                 # Music streaming service
 # cask "steam"                   # Gaming platform
 # cask "streamlabs"              # Streaming software
 # cask "telegram"                # Messaging app
 # cask "vlc"                     # Media player
-cask "whatsapp"                # Messaging app
+# cask "whatsapp"                # Messaging app
 
 
 # --- VS Code Extensions ---
 # Thematic & UI
-vscode "dracula-theme.theme-dracula"        # Dracula theme
+# vscode "dracula-theme.theme-dracula"        # Dracula theme
 # vscode "github.github-vscode-theme"         # GitHub's official theme
-vscode "pkief.material-icon-theme"          # Material Design icons
+# vscode "pkief.material-icon-theme"          # Material Design icons
 # vscode "tal7aouy.theme"                     # Another theme
 # vscode "vscode-icons-team.vscode-icons"     # VS Code icons
 
