@@ -87,6 +87,8 @@ info "Installing Sbarlua"
 if ! brew list --formula | grep -q 'readline'; then
   warn "readline not found. Installing..."
   if ! brew install readline &>/dev/null; then
+    ok "readline installed."
+  else
     err "Failed to install readline. Skipping SbarLua."
     exit 1
   fi
