@@ -11,6 +11,9 @@ ok() { printf "✅ %s\n" "$*"; }
 warn() { printf "⚠️  %s\n" "$*"; }
 err() { printf "❌ %s\n" "$*" >&2; }
 
+# Find the absolute path of the directory where this script is located
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
 # -------- Timing --------
 START_TIME=$(date +%s)
 
@@ -58,7 +61,7 @@ warn "Some casks (e.g. Password Manager, VPNs, fonts, browsers) may trigger macO
 warn "This happens because certain apps install into /Applications or /Library/Fonts and require elevated privileges."
 warn "You may also see prompts for helper tools or Keychain access — this is normal."
 echo "==============================================================================================================="
-BREWFILE="$HOME/dotfiles/config/brew/Brewfile"
+BREWFILE="$SCRIPT_DIR/config/brew/Brewfile"
 [ -r "$BREWFILE" ] || {
   err "Brewfile not found at '$BREWFILE'."
   exit 1
@@ -108,13 +111,14 @@ fi
 # -------- Stow dotfiles --------
 info "Stowing dotfiles..."
 mkdir -p "$HOME/.config"
-stow --dir="$HOME/dotfiles" --target="$HOME/.config" config
-stow --dir="$HOME/dotfiles" --target="$HOME" zsh
+# Use $SCRIPT_DIR as the source directory for stow
+stow --dir="$SCRIPT_DIR" --target="$HOME/.config" config
+stow --dir="$SCRIPT_DIR" --target="$HOME" zsh
 ok "Dotfiles stowed."
 
 # -------- Aerospace setup --------
 info "Running Aerospace setup..."
-AERO_SCRIPT="$HOME/dotfiles/scripts/aerospace-setup.sh"
+AERO_SCRIPT="$SCRIPT_DIR/scripts/aerospace-setup.sh"
 if [ -r "$AERO_SCRIPT" ]; then
   # shellcheck source=./aerospace-setup.sh
   source "$AERO_SCRIPT"
