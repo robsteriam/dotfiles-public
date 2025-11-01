@@ -200,7 +200,6 @@ sbar.default({
 	-- Default properties for popup menus
 	popup = {
 		align = "center",
-		color = M.colors.white,
 		background = {
 			border_width = 0,
 			corner_radius = 6,
