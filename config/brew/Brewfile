@@ -53,7 +53,7 @@ brew "fzf"                     # A command-line fuzzy finder
 # brew "colordiff"               # Colorized `diff` output
 # brew "gemini-cli"              # Command-line tool for Gemini protocol
 # brew "iproute2mac"             # Shows IP and network info (like Linux `ip`)
-# brew "jq"                      # Command-line JSON processor
+brew "jq"                      # Command-line JSON processor
 brew "neofetch"                # Displays system information in the terminal
 # brew "tlrc"                    # Command-line tool for searching `tldr` pages
 
