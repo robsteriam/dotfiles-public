@@ -3,7 +3,6 @@ local settings = require("settings")
 local sbar = require("sketchybar")
 
 local apple = sbar.add("item", {
-	default = true,
 	icon = {
 		padding_left = settings.padding.icon_item.icon.padding_left,
 		padding_right = settings.padding.icon_item.icon.padding_right,
