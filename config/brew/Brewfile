@@ -104,7 +104,7 @@ cask "font-sketchybar-app-font"    # Font for sketchybar icons
 # brew "wakeonlan"               # Wakes up devices on your network
 # brew "wireshark"               # Network protocol analyzer
 # brew "yazi"                    # A modern terminal file manager
-# brew "yq"                      # Command-line YAML, XML, and JSON processor
+brew "yq"                      # Command-line YAML, XML, and JSON processor
 # brew "certbot"                 # Tool for getting SSL certificates from Let's Encrypt
 
 # Development & System Tools
