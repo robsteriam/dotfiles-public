@@ -58,7 +58,7 @@ Clicking on the package name will open their GitHub page.
 
 | Tool                                                                                                                  | Description                                                                  | Configuration           |
 | :-------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------- | :---------------------- |
-| [**Aerospace**](github.com/nikitabobko/AeroSpace)                                                                     | A tiling window manager                                                      | `aerospace.toml`        |
+| [**Aerospace**](https://github.com/nikitabobko/AeroSpace)                                                                     | A tiling window manager                                                      | `aerospace.toml`        |
 | [**dircolors**](https://github.com/gibbling/dircolors)                                                                | Colorizes `ls` output                                                        | `dircolors`             |
 | [**Ghostty**](https://ghostty.org/docs)                                                                               | A modern terminal emulator                                                   | `ghostty.conf`          |
 | [**Kitty**](https://sw.kovidgoyal.net/kitty/)                                                                         | A fast, feature-rich terminal emulator                                       | `kitty.conf`            |
@@ -133,7 +133,6 @@ Here's a breakdown of what the script does:
 - **Service Management**: It starts key macOS services like `borders` using `brew services`, ensuring they launch automatically on login.
 - **Aerospace Setup**: Configures **Aerospace** and adds it to macOS login items.
 - **Tmux Setup**: Installs the tmux plugin manager (TPM) along with three default plugins.
-- **Configuration Sourcing**: It sources the `zsh` configuration files (`.zshenv`, `.zprofile`, and `zshrc`) to apply all shell and prompt customizations immediately as the setup completes.
 
 This approach streamlines the setup, so you only need to run one command to get your full environment up and running.
 
