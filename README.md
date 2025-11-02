@@ -11,6 +11,7 @@ Explore the documentation on the **[Wiki](https://github.com/robsteriam/dotfiles
 [![macOS Setup: Aerospace, Sketchybar, JankyBorders, Raycast, Kitty, etc.](https://img.youtube.com/vi/Nozqf0ZCiPw/maxresdefault.jpg)](https://youtu.be/Nozqf0ZCiPw?si=z1MuF0Y4N9s8L3jU)
 
 > *📺 Watch: macOS setup demo using Aerospace, Sketchybar, and Kitty.*
+> 
 > ▶️ *Click the thumbnail to watch the demo video on YouTube.*
 
 ---
