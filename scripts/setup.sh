@@ -121,6 +121,48 @@ stow --dir="$REPO_ROOT" --target="$HOME/.config" config
 stow --dir="$REPO_ROOT" --target="$HOME" zsh
 ok "Dotfiles stowed."
 
+# -------- Tmux Plugin Manager (TPM) ---------
+info "Installing Tmux Plugin Manager (TPM)..."
+TPM_DIR="$HOME/.config/tmux/plugins/tpm"
+
+# Ensure base directories exist
+mkdir -p "$(dirname "$TPM_DIR")"
+
+# Install TPM if missing
+if [ ! - d "$TPM_DIR" ]; then
+  if git clone https://github.com/tmux-plugins/tpm "$TPM_DIR" > "$HOME/setup.tpm.log" 2>&1; then
+    ok "TPM installed successfully. (Details: ~/setup.tpm.log)"
+  else
+    err "TPM clone failed. Check ~/setup.tpm.log"
+    exit
+  fi
+else
+  ok "TPM already installed."
+fi
+
+# Ensure tmux itself is installed before continuing
+if ! command -v tmux >/dev/null 2>&1; then
+  err "tmux not found in PATH. Check your Brewfile installation."
+  exit 1
+fi
+
+# Initialize tmux environment (needed for TPM to install plugins)
+info "Installing Tmux plugins via TPM..."
+tmux start-server
+
+# Run TPM's installer for all declared plugins in ~/.config/tmux/tmux.conf
+if "$TPM_DIR/bin/install_plugins" > "$HOME/setup.tpm-plugins.log" 2>&1; then
+  ok "Tmux plugins installed. (Details: ~/setup.tpm-plugins.log)"
+else
+  warn "Plugin installation may have failed. Check ~/setup.tpm-plugins.log"
+fi
+
+# Reload tmux config so plugins take effect
+tmux new-session -d
+tmux source-file ~/.config/tmux/tmux.conf
+tmux kill-server
+ok "Tmux configuration loaded and verified"
+
 # -------- Aerospace setup --------
 info "Running Aerospace setup..."
 AERO_SCRIPT="$SCRIPT_DIR/aerospace-setup.sh"
