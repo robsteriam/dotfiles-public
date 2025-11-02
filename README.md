@@ -8,11 +8,21 @@ Explore the documentation on the **[Wiki](https://github.com/robsteriam/dotfiles
 > This setup is opinionated and optimized for keyboard-driven workflows.  
 > It’s a living project—expect it to evolve frequently.
 
-[![macOS Setup: Aerospace, Sketchybar, JankyBorders, Raycast, Kitty, etc.](https://img.youtube.com/vi/Nozqf0ZCiPw/maxresdefault.jpg)](https://youtu.be/Nozqf0ZCiPw?si=z1MuF0Y4N9s8L3jU)
+<figure align="center">
+  <a href="https://youtu.be/Nozqf0ZCiPw?si=z1MuF0Y4N9s8L3jU">
+    <img
+      src="https://img.youtube.com/vi/Nozqf0ZCiPw/maxresdefault.jpg"
+      alt="macOS Setup: Aerospace, Sketchybar, JankyBorders, Raycast, Kitty, etc."
+      width="80%"
+      style="border-radius:12px; position:relative;"
+    />
+  </a>
+  <figcaption>
+    <p><strong>▶️ Watch the macOS Setup Demo:</strong> Aerospace · Sketchybar · Kitty · Raycast</p>
+    <p><em>Click to open the video on YouTube.</em></p>
+  </figcaption>
+</figure>
 
-> *📺 Watch: macOS setup demo using Aerospace, Sketchybar, and Kitty.*
-> 
-> ▶️ *Click the thumbnail to watch the demo video on YouTube.*
 
 ---
 
