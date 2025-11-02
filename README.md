@@ -36,6 +36,7 @@ This structure allows for granular control over which dotfiles are active on you
 - macOS (Apple Silicon)
 - [**Homebrew**](https://brew.sh/) (installed automatically by `setup.sh` if missing)
 - [**GNU Stow**](https://www.gnu.org/software/stow/) (handled by Brewfile)
+- [**Git**](https://git-scm.com/) (handled by Brewfile)
 
 ---
 
@@ -90,22 +91,24 @@ brew "git"                     # Version control system
 ...
 ```
 
-### **Installation**
+### **Recommended Installation**
 
-Clone and bootstrap in one step:
+To make it your own, fork this repo and clone your fork instead::
 
 ```bash
-git clone https://github.com/your-username/dotfiles.git ~/dotfiles
+git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
 cd ~/dotfiles/scripts
 ./setup.sh
 ```
 
 The setup script will:
 - Install **Homebrew** (if not found)
-- Run `brew bundle` to install all packages/casks/fonts from `config/brew/Brewfile`
-- Use **GNU Stow** to symlink files from `config/` -> `~/.config` and from `zsh/` -> `~/`
+- Run `brew bundle` to install all formulas, casks, and fonts listed in `config/brew/Brewfile`
+- Use **GNU Stow** to symlink configuration files from `config/` -> `~/.config` and from `zsh/` -> `~/`
 - Configure **Aerospace** and add it to macOS login items.
-- Start key services (e.g. `borders`)
+- Start essential background services (e.g., borders)
+- Reload your shell when setup completes
+- Install tmux plugin manager (TPM) along with three default plugins
 - Reload your shell after setup
 
 ---
