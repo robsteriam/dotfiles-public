@@ -129,13 +129,10 @@ TPM_DIR="$HOME/.config/tmux/plugins/tpm"
 mkdir -p "$(dirname "$TPM_DIR")"
 
 # Install TPM if missing
-if [ ! - d "$TPM_DIR" ]; then
-  if git clone https://github.com/tmux-plugins/tpm "$TPM_DIR" > "$HOME/setup.tpm.log" 2>&1; then
-    ok "TPM installed successfully. (Details: ~/setup.tpm.log)"
-  else
-    err "TPM clone failed. Check ~/setup.tpm.log"
-    exit
-  fi
+if [ ! -d "$TPM_DIR" ]; then
+  git clone https://github.com/tmux-plugins/tpm "$TPM_DIR" > "$HOME/setup.tpm.log" 2>&1 \
+    && ok "TPM installed successfully." \
+    || err "TPM installation failed. Check ~/setup.tpm.log"
 else
   ok "TPM already installed."
 fi
@@ -148,13 +145,19 @@ fi
 
 # Initialize tmux environment (needed for TPM to install plugins)
 info "Installing Tmux plugins via TPM..."
-tmux start-server
-
-# Run TPM's installer for all declared plugins in ~/.config/tmux/tmux.conf
-if "$TPM_DIR/bin/install_plugins" > "$HOME/setup.tpm-plugins.log" 2>&1; then
-  ok "Tmux plugins installed. (Details: ~/setup.tpm-plugins.log)"
+if [ -f "$HOME/.config/tmux/tmux.conf" ]; then
+  tmux start-server
+  tmux new-session -d -s bootstrap
+  tmux source-file "$HOME/.config/tmux/tmux.conf"
+  if [ -x "$TPM_DIR/bin/install_plugins" ]; then
+    "$TPM_DIR/bin/install_plugins" >"$HOME/setup.tpm-plugins.log" 2>&1
+    ok "Tmux plugins installed. (Details: ~/setup.tpm-plugins.log)"
+  else
+    warn "TPM installer missing; plugins not auto-installed. Run 'Ctrl-s + I' inside tmux."
+  fi
+  tmux kill-server
 else
-  warn "Plugin installation may have failed. Check ~/setup.tpm-plugins.log"
+  warn "tmux.conf not found. Skipping plugin installation."
 fi
 
 # Reload tmux config so plugins take effect
