@@ -1,10 +1,16 @@
 # **robsteriam Dotfiles**
 
-These are the personal configuration files for my macOS setup, designed for akeyboard driven workflow. This is a work in progress and will constantly change over time. I'm having fun, enjoying the process and learning.
+These are the personal configuration files for my macOS setup, designed for a keyboard driven workflow. This is a work in progress and will constantly change over time. I'm having fun, enjoying the process and learning.
 
 Explore the documentation on the **[Wiki](https://github.com/robsteriam/dotfiles-public/wiki)** or see it in action in the video demo below.
 
+> [!NOTE]
+> This setup is opinionated and optimized for keyboard-driven workflows.  
+> It’s a living project—expect it to evolve frequently.
+
 [![macOS Setup: Aerospace, Sketchybar, JankyBorders, Raycast, Kitty, etc.](https://img.youtube.com/vi/Nozqf0ZCiPw/maxresdefault.jpg)](https://youtu.be/Nozqf0ZCiPw?si=z1MuF0Y4N9s8L3jU)
+
+> *📺 Watch: macOS setup demo using Aerospace, Sketchybar, and Kitty.*
 
 ---
 
@@ -28,6 +34,9 @@ The top-level directories correspond to the final locations of the symlinked fil
 - `config/brew/`: Contains the `Brewfile` used by `brew bundle` to manage application dependencies.
 
 This structure allows for granular control over which dotfiles are active on your system.
+
+> [!TIP]
+> You can apply specific configurations selectively. For example, run `stow zsh` to only link your shell setup, or `stow config` to apply everything under `~/.config/`.
 
 ---
 
@@ -66,6 +75,9 @@ Clicking on the package name will open their GitHub page.
 
 - Before running the script, `open config/brew/Brewfile` to choose which packages you want to install. You can comment or uncomment lines to include or exclude specific packages. If you know the package names, you can also add new ones here to have them installed automatically.
 
+> [!NOTE]
+> The Brewfile acts as a manifest. Each uncommented line represents a tool that will be installed automatically by `brew bundle`. Comment out anything you don’t want.
+
 Snippet of Brewfile
 ```bash
 # The "Brewfile" will automatically install everything listed below that is uncommented.
@@ -90,27 +102,19 @@ brew "git"                     # Version control system
 # brew "neovim"                  # A highly extensible Vim-based text editor
 ...
 ```
-
+---
 ### **Recommended Installation**
 
-To make it your own, fork this repo and clone your fork instead::
+To make it your own, fork this repo and clone your fork instead:
+
+> [!IMPORTANT]
+> Run the setup commands from Terminal on macOS. The script assumes Apple Silicon and automatically handles `/opt/homebrew` paths. It should *not* be run as `root`.
 
 ```bash
 git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
 cd ~/dotfiles/scripts
 ./setup.sh
 ```
-
-The setup script will:
-- Install **Homebrew** (if not found)
-- Run `brew bundle` to install all formulas, casks, and fonts listed in `config/brew/Brewfile`
-- Use **GNU Stow** to symlink configuration files from `config/` -> `~/.config` and from `zsh/` -> `~/`
-- Configure **Aerospace** and add it to macOS login items.
-- Start essential background services (e.g., borders)
-- Reload your shell when setup completes
-- Install tmux plugin manager (TPM) along with three default plugins
-- Reload your shell after setup
-
 ---
 
 ### **Setup Details & Script Breakdown**
@@ -125,8 +129,21 @@ Here's a breakdown of what the script does:
 - **Dotfile Symlinking**: It uses **GNU Stow** to create symbolic links for the dotfiles in the `config` and `zsh` directories, linking them to their correct locations in the home directory.
 - **Configuration Sourcing**: It sources the `zsh` configuration files (`.zshenv`, `.zprofile`, and `zshrc`) to apply shell and prompt customizations immediately.
 - **Service Management**: It starts key macOS services like `borders` using `brew services`, ensuring they launch automatically on login.
+- **Aerospace Setup**: Configures **Aerospace** and adds it to macOS login items.
+- **Tmux Setup**: Installs the tmux plugin manager (TPM) along with three default plugins.
+- **Configuration Sourcing**: It sources the `zsh` configuration files (`.zshenv`, `.zprofile`, and `zshrc`) to apply all shell and prompt customizations immediately as the setup completes.
 
 This approach streamlines the setup, so you only need to run one command to get your full environment up and running.
+
+---
+
+### **Script Breakdown**
+
+- `setup.sh` -> full automated setup.
+- `uninstall.sh` -> full teardown & cleanup.
+- `aerospace-setup.sh` -> helper script for Aerospace installation, login items, and startup.
+
+These scripts are modular, you can run them independently if needed.
 
 ---
 
@@ -139,27 +156,31 @@ cd ~/dotfiles/scripts
 ./uninstall.sh
 ```
 
-This script will:
-- Stop **Homebrew** services.
-- Uninstall all **Homebrew** formulae & casks.
-- Remove **Homebrew** itself and cleanup `/opt/homebrew`
-- Delete symlinked dotfiles (`~/.zprofile`, `~/.zshenv`, `~/.config/`)
-- Remove Aerospace autostart & logs
-
-### **Script Breakdown**
-
-- `setup.sh` -> full automated setup.
-- `uninstall.sh` -> full teardown & cleanup.
-- `aerospace-setup.sh` -> helper script for Aerospace installation, login items, and startup.
-
-These scripts are modular, you can run them independently if needed.
-
 **What the script does**:
 - **Uninstalls Homebrew**: It runs Homebrew's official uninstall script to remove Homebrew and all packages, casks, and dependencies installed via the `Brewfile`.
 - **Removes Directories**: It removes the Homebrew installation directory (`/opt/homebrew/`) to ensure a complete removal
 - **Deletes Dotfiles**: It deletes the symlinked configuration files from your home directory (`~/.zprofile`, `~/.zshenv`) and removes the `~/.config` directory to clean up all configuration files.
 
-Please note that this script requries `sudo` access to remove certain directories, so you will be prompted for your password during the process.
+Please note that this script requires `sudo` access to remove certain directories, so you will be prompted for your password during the process.
+
+> [!WARNING]
+> This script removes all Homebrew packages—including any you installed outside this dotfiles setup.  
+> Back up your existing Brewfile first with `brew bundle dump`.
+
+---
+
+### **Post-Install Checks**
+
+After running `setup.sh`, you can verify everything is working correctly:
+
+- Run `brew doctor` to confirm Homebrew is healthy.
+- Open a new terminal and ensure your prompt and aliases load properly.
+- Check that **Aerospace** starts automatically and manages workspaces as expected.
+- Verify **Sketchybar** is running by checking `brew services list`.
+- Try `tmux` or `nvim` to confirm their configurations loaded successfully.
+
+> [!TIP]
+> Once everything’s running, explore `~/.config` and tweak each tool’s configuration to your liking. The real magic of dotfiles is customization.
 
 ---
 
