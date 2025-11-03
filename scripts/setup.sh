@@ -201,6 +201,18 @@ else
 fi
 sleep 2
 
+# -------- Final Instructions & Reload --------
+info "--- 🦾 MANUAL STEPS REQUIRED ---"
+echo ""
+echo "💡 Raycast Setup:"
+echo "   1. Open Raycast → Settings → Extensions → Add Script Directory"
+echo "   2. Choose: ~/.config/raycast/scripts"
+echo ""
+echo "💡 (Recommended) Remap Hotkeys:"
+echo "   • Set Raycast Hotkey to ⌘ + Space (in Raycast Settings)"
+echo "   • Set Spotlight Hotkey to ⌥ + Space (in System Settings → Keyboard → Keyboard Shortcuts → Spotlight)"
+echo ""
+
 # -------- Done + Shell reload --------
 END_TIME=$(date +%s)
 ELAPSED=$((END_TIME - START_TIME))
