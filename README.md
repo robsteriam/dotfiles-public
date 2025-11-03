@@ -23,6 +23,20 @@ Explore the documentation on the **[Wiki](https://github.com/robsteriam/dotfiles
   </figcaption>
 </figure>
 
+---
+## Table of Contents
+- [Key Features](#key-features)
+- [Dotfile Structure & Management](#dotfile-structure--management)
+- [Prerequisites](#prerequisites)
+- [Packages](#packages)
+- [Pre-Installation](#pre-installation)
+- [Recommended Installation](#recommended-installation)
+- [Setup Details & Script Breakdown](#setup-details--script-breakdown)
+- [Script Breakdown](#script-breakdown)
+- [Post-Installation](#post-installation)
+- [Uninstallation Steps](#uninstallation-steps)
+- [Resources](#resources)
+- [Screenshots](#screenshots)
 
 ---
 
@@ -74,7 +88,7 @@ Clicking on the package name will open their GitHub page.
 | [**Kitty**](https://sw.kovidgoyal.net/kitty/)                                                                         | A fast, feature-rich terminal emulator                                       | `kitty.conf`            |
 | [**neofetch**](https://github.com/dylanaraps/neofetch) or [**fastfetch**](https://github.com/fastfetch-cli/fastfetch) | Displays system information                                                  | `config.conf`           |
 | [**neovim**](https://neovim.io/)                                                                                      | The powerful editor, configured with [**LazyVim**](https://www.lazyvim.org/) | `init.lua`, `lua`       |
-| [**Raycast**](https://www.raycast.com/)                                                                               | A fast launcher with powerful integrations                                   | `script_commands`       |
+| [**Raycast**](https://www.raycast.com/)                                                                               | A fast launcher with powerful integrations                                   | `config/raycast/scripts/`       |
 | [**sketchybar Lua**](https://github.com/FelixKratz/SbarLua)                                                           | A highly customizable macOS status bar                                       | `sketchybarrc`          |
 | [**starship**](https://starship.rs/)                                                                                  | The prompt for any shell                                                     | `starship.toml`         |
 | [**tmux**](https://github.com/tmux/tmux)                                                                              | A terminal multiplexer                                                       | `tmux.conf`             |
@@ -158,6 +172,69 @@ These scripts are modular, you can run them independently if needed.
 
 ---
 
+## **Post-Installation**
+
+After the `setup.sh` script finishes, a few manual steps will complete your macOS environment.
+These steps are optional but strongly recommended to get the full experience.
+
+---
+
+### **Optional Manual Setup**
+
+#### **1. Configure Raycast Scripts**
+
+The setup script automatically symlinks the script commands from this repository to `~/.config/raycast/scripts`. You must manually tell Raycast to look at this directory:
+
+1. Open **Raycast**.
+2. Go to **Settings → Extensions → Script Commands**.
+3. Click **“Add Directory…”** and select `~/.config/raycast/scripts`.
+4. Click **“Refresh All Scripts”** (or press `⌘ + R`).
+
+> [!NOTE]
+> These script commands are version-controlled inside your dotfiles, so any updates or new scripts you commit will automatically sync across devices.
+
+---
+
+#### **2. Configure Raycast & Spotlight Hotkeys**
+
+To make Raycast your primary launcher and free up the `⌘ + Space` shortcut, adjust the default Spotlight shortcut.
+
+**Step 1 – Re-map Spotlight**
+
+1. Open **System Settings → Keyboard → Keyboard Shortcuts**.
+2. Select **Spotlight** from the sidebar.
+3. Double-click on the **⌘ Space** mapping for *“Show Spotlight search.”*
+4. Change it to something else (like **⌥ Space**) or disable it.
+
+**Step 2 – Set Raycast Hotkey**
+
+1. Open **Raycast → Settings → General**.
+2. Set **Raycast Hotkey** to **⌘ Space**.
+3. Enable **Launch Raycast at Login**.
+
+> [!TIP]
+> This configuration lets Raycast replace Spotlight seamlessly. You can still trigger Spotlight manually using **⌥ Space**.
+
+---
+
+#### **3. Verification**
+
+After completing the optional setup, verify that everything is working correctly:
+
+* Run `brew doctor` to confirm Homebrew is healthy.
+* Open a new terminal and ensure your **Starship** prompt and aliases load.
+* Press **⌘ Space** to confirm Raycast opens instead of Spotlight.
+* Check that **Aerospace** starts automatically and manages workspaces.
+* Run `brew services list` to confirm **borders** is active.
+* Launch `tmux` or `nvim` to verify their configurations loaded properly.
+
+> [!TIP]
+> Once your setup is complete, explore `~/.config` — tweak themes, scripts, and behaviors to your liking.
+> 
+> Dotfiles are meant to evolve with you.
+
+---
+
 ### **Uninstallation Steps**
 
 To restore a clean system:
@@ -177,21 +254,6 @@ Please note that this script requires `sudo` access to remove certain directorie
 > [!WARNING]
 > This script removes all Homebrew packages—including any you installed outside this dotfiles setup.  
 > Back up your existing Brewfile first with `brew bundle dump`.
-
----
-
-### **Post-Install Checks**
-
-After running `setup.sh`, you can verify everything is working correctly:
-
-- Run `brew doctor` to confirm Homebrew is healthy.
-- Open a new terminal and ensure your prompt and aliases load properly.
-- Check that **Aerospace** starts automatically and manages workspaces as expected.
-- Verify **Sketchybar** is running by checking `brew services list`.
-- Try `tmux` or `nvim` to confirm their configurations loaded successfully.
-
-> [!TIP]
-> Once everything’s running, explore `~/.config` and tweak each tool’s configuration to your liking. The real magic of dotfiles is customization.
 
 ---
 
